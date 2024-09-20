@@ -1,34 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { AbilityContext } from './components/Can'
+import useLogIn from './hooks/useLogIn'
+import store from './store/store'
+import abilities from './abilities'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const user = store((state) => state.user)
+  const { logIn, logOut } = useLogIn()
+  console.log('ABILITIES', abilities)
   return (
-    <>
+    <AbilityContext.Provider value={abilities}>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <span>{user?.name}</span>
+        <button onClick={() => user ? logOut() : logIn()}>
+          {user ? 'Log out' : 'Log in'}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </AbilityContext.Provider>
   )
 }
 

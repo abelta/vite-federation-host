@@ -1,10 +1,12 @@
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 
 export const handlers = [
-    http.get('/user', () => {
-        return HttpResponse(200, { username: 'admin' })
+    http.get('/user', async () => {
+        await delay(2000)
+        return HttpResponse.json({ name: 'John Doe' })
     }),
-    http.get('/permissions', () => {
-        return HttpResponse(200, { permissions: ['read', 'write'] })
+    http.get('/permissions', async () => {
+        await delay(2000)
+        return HttpResponse.json({ permissions: ['read', 'write'] })
     })
 ]
