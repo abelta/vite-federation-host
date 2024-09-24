@@ -1,4 +1,4 @@
 import { useContext } from 'react'
-import AbilityContext from '../contexts/AbilityContext'
+import AbilityContext from 'host/contexts/AbilityContext'
 
 export default () => useContext(AbilityContext)

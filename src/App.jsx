@@ -1,8 +1,8 @@
-import AbilityContext from './contexts/AbilityContext'
-import useLogIn from './hooks/useLogIn'
-import useUser from 'host/useUser'
-import abilities from './abilities'
+import abilities from 'host/abilities'
+import AbilityContext from 'host/contexts/AbilityContext'
+import useUser from 'host/hooks/useUser'
 import App1 from 'remote1/App'
+import useLogIn from './hooks/useLogIn'
 
 const App = () => {
   const user = useUser()
