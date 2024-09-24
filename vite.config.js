@@ -11,6 +11,7 @@ export default defineConfig({
       remotes: {
         host: 'http://localhost:4999/assets/remoteEntry.js',
         remote1: 'http://localhost:5001/assets/remoteEntry.js',
+        remote2: 'http://localhost:5002/assets/remoteEntry.js',
       },
       exposes: {
         './store': './src/store/store',
@@ -26,6 +27,7 @@ export default defineConfig({
         '@casl/ability',
         '@casl/react',
         'zustand',
+        'react-router-dom',
       ],
     }),
   ],
