@@ -1,19 +1,24 @@
-import { AbilityContext } from './components/Can'
+import AbilityContext from './contexts/AbilityContext'
 import useLogIn from './hooks/useLogIn'
-import store from './store/store'
+import useUser from 'host/useUser'
 import abilities from './abilities'
+import App1 from 'remote1/App'
 
 const App = () => {
-  const user = store((state) => state.user)
+  const user = useUser()
   const { logIn, logOut } = useLogIn()
-  console.log('ABILITIES', abilities)
+
   return (
     <AbilityContext.Provider value={abilities}>
       <div>
+        <h1>HOST</h1>
         <span>{user?.name}</span>
         <button onClick={() => user ? logOut() : logIn()}>
           {user ? 'Log out' : 'Log in'}
         </button>
+      </div>
+      <div>
+        <App1 />
       </div>
     </AbilityContext.Provider>
   )
