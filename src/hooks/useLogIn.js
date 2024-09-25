@@ -12,7 +12,6 @@ export default () => {
         setUser(user)
         const permissions = await getPermissions()
         abilities.update(permissions)
-        console.log('HOST', abilities.rules)
     }
 
     const logOut = () => {
